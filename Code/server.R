@@ -18,7 +18,7 @@ function(input, output, session) {
       filter(real_estate_no_outliers$City %in% input$City)
     return(data)
   })
-  
+#this is a comment
   # Reactive function to filter for the rendering plots
   real_estate_plot_sub = reactive({
     data = real_estate_plot_data %>% 

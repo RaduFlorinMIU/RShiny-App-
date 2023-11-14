@@ -28,7 +28,7 @@ function(input, output, session) {
       mutate(price_m2=total_price/total_living_are)
     return(data) 
   })
-
+# Mon commentaire
     # Render Data table
   output$Data <- renderDataTable({
     real_estate_no_outliers_sub()

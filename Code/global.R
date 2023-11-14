@@ -21,7 +21,7 @@ france_map <- map_data("france")
 city_coordinates = fread("fr_city_coordinates.csv", data.table = FALSE)
 
 # Import data for analysis
-real_estate = fread("Clean Real Estate Data.csv", data.table = FALSE)
+real_estate = fread("Code/Clean Real Estate Data.csv", data.table = FALSE)
 
 
 # Cleaning city coordinates data for the merge

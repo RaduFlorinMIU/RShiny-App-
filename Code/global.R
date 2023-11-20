@@ -32,17 +32,19 @@ city_coordinates = city_coordinates %>%
   mutate(lng = gsub(',','.',lng) %>% as.numeric())
 
 
-# Cleaning data and removing outliers
+# Cleaning data
 
 real_estate = real_estate %>%
   select(!c(V1)) %>% 
   mutate(city_lower = tolower(City))
 
+# Removing Outliers
 real_estate_no_outliers = real_estate %>% 
   filter(Outlier == TRUE) %>% 
   select(!c(Outlier,`Lower Limit`,`Upper Limit`)) %>% 
   mutate(number_of_sales=1)
 
+# Adding city coordinates to initial data
 real_estate_plot_data = real_estate_no_outliers %>% 
   left_join(city_coordinates, by=join_by("city_lower" == "city_lower"))
 

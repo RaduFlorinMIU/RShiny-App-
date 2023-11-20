@@ -12,14 +12,14 @@ library(shiny)
 # Define server logic required to draw a histogram
 function(input, output, session) {
   
-  # Reactive function to filter based on city. 
+  # Reactive function to filter based on city
   real_estate_no_outliers_sub = reactive({
     data = real_estate_no_outliers %>% 
       filter(real_estate_no_outliers$City %in% input$City)
     return(data)
   })
-#this is a comment
-  # Reactive function to filter for the rendering plots
+
+    # Reactive function to filter for the rendering plots
   real_estate_plot_sub = reactive({
     data = real_estate_plot_data %>% 
       filter(real_estate_plot_data$Year %in% input$Year & real_estate_plot_data$`Local Type` %in% input$local_type & real_estate_plot_data$`Sale Type` %in% input$sale_type) %>% 
@@ -28,13 +28,16 @@ function(input, output, session) {
       mutate(price_m2=total_price/total_living_are)
     return(data) 
   })
-# Mon commentaire
-    # Render Data table
+  
+
+      # Render Data table
   output$Data <- renderDataTable({
     real_estate_no_outliers_sub()
   })
   
+  # Render plot
   output$Plot <- renderPlotly({
+    
     plot = ggplot() +
       geom_polygon(data=france_map, 
                    aes(x = long, y = lat, group = group),
@@ -49,7 +52,10 @@ function(input, output, session) {
       scale_colour_gradient(low="gold", high="green4")+
       theme_void()
     
+    # Arranging the plot size so that it shows nicely on computer screen 
     ggplotly(plot) %>% layout(autosize = F, width = 700, height = 500)
   })
+  
+  # Command to stop the app when quitting R Shiny 
   session$onSessionEnded ( stopApp )
 }

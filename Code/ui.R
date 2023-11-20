@@ -19,9 +19,10 @@ fluidPage(
   
   # Creating a navigation page for our app 
   navbarPage("Pages",
+             
+             # Creating the first tab Panel. Where a subset of the data will be displayed
              tabPanel("Dataset",
                       
-                      #####
                       # Sidebar with a slider input for number of bins
                       sidebarLayout(
                         sidebarPanel(
@@ -34,17 +35,20 @@ fluidPage(
                           )
                         ),
                         
-                        # Show a plot of the generated distribution
+                        # Show the subset of the data in the main panel  
                         mainPanel(
                           tabsetPanel(type = "tabs",
                                       tabPanel("Real Estate table", dataTableOutput('Data'))
                           )
                         )
                       )
-                      #####
              ), 
              
+             # Creating the second tab Panel. Where the plot will be displayed
              tabPanel("Plots", 
+                      
+                      # Creating 3 different sidebars tha will be used to subset the dataset based on the 
+                      # Year, Local Type and Sale Type
                       sidebarLayout(
                         sidebarPanel(
                           pickerInput(inputId = "Year", 

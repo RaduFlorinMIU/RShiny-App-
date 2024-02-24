@@ -13,12 +13,11 @@ library(stringr)
 
 # Import Data ---- 
 
-estate_2015 = fread("./Datasets/2015_real_estate_transactions.csv", data.table = FALSE, na.strings ="")
-estate_2016 = fread("./Datasets/2016_real_estate_transactions.csv", data.table = FALSE, na.strings ="")
-estate_2017 = fread("./Datasets/2017_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
-estate_2018 = fread("./Datasets/2018_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
-estate_2019 = fread("./Datasets/2019_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
-
+estate_2015 = fread("Rshiny_Application//Datasets/2015_real_estate_transactions.csv", data.table = FALSE, na.strings ="")
+estate_2016 = fread("Rshiny_Application//Datasets/2016_real_estate_transactions.csv", data.table = FALSE, na.strings ="")
+estate_2017 = fread("Rshiny_Application//Datasets/2017_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
+estate_2018 = fread("Rshiny_Application//Datasets/2018_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
+estate_2019 = fread("Rshiny_Application//Datasets/2019_real_estate_transactions.csv", data.table = FALSE, na.strings ='')
 
 # Merging tables ----
 
@@ -71,5 +70,5 @@ real_estate = real_estate %>%
 
 # Write CSV 
 
-write.csv(real_estate, "Datasets/clean_real_estate_data.csv")
+write.csv(real_estate, "Rshiny_Application/Datasets/clean_real_estate_data.csv")
 

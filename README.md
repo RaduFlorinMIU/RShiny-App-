@@ -4,7 +4,7 @@ This project is a simple Shiny web application developed as a part of a course p
 
 ## Project Structure
 
-- **Data Preparation Script**: This script (`data_preparation.R`) contains the code for cleaning and preparing the real estate data for visualization in the Shiny app.
+- **Data Preparation Script**: This script (`CleaningTheData.R`) contains the code for cleaning and preparing the real estate data for visualization in the Shiny app.
   
 - **Shiny App Scripts**:
   - **Global Script** (`global.R`): Contains code for loading necessary libraries and data.
@@ -27,6 +27,6 @@ This project is a simple Shiny web application developed as a part of a course p
 ## Usage
 
 1. Run the `CleaningTheData.R` script to clean and prepare the real estate data.
-2. Run the Shiny app by executing the `server.R` and `ui.R` scripts together.
+2. Run the Shiny app by executing the `server.R`, `ui.R` and `global.R` scripts together.
 3. Use the filters provided in the app to explore the real estate data for the 9 biggest French cities.
 
